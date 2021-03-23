@@ -1,0 +1,17 @@
+{% extends 'index/layout.html.twig' %}
+{% block body %}  {{ parent() }}
+    <div class="container   ">
+{% for serie in series %}
+    <div class="card" style="width: 25rem;">
+        <img class="card-img-top" src="img/posters/series/{{ serie.poster }}" alt="img-{{ serie.name }}">
+        <div class="card-body">
+            <h5 class="card-title"><a href="#">{{ serie.name }}</a></h5>
+            <p class="card-text">{{ serie.genres }}</p>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+    <nav class="pagination">
+        {{ knp_pagination_render(series) }}
+    </nav>
+{% endblock %}

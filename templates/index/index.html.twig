@@ -1,5 +1,12 @@
 {% extends 'index/layout.html.twig' %}
 {% block body %}  {{ parent() }}
+    <div class="form-serie">
+        {{ form_start(sortieFilterType) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(sortieFilterType) }}
+        </div>
+        {{ form_end(sortieFilterType) }}
+    </div>
     <div class="container   ">
 {% for serie in series %}
     <div class="card" style="width: 25rem;">

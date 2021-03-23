@@ -19,32 +19,33 @@ class SerieRepository extends ServiceEntityRepository
         parent::__construct($registry, Serie::class);
     }
 
-    // /**
-    //  * @return Serie[] Returns an array of Serie objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    public function filter ($search) {
+        $query = $this
+            ->createQueryBuilder('s')
+            ->addSelect('s');
+        $query
+            ->orderBy('s.popularity', 'DESC');
+        if ($search->getName()){
+            $query
+                ->andWhere('s.name CONTAINS :name')
+                ->setParameter('name', '%'. $search->getName() .'%');
+        }
+        if ($search->getPopularity()){
+            $query
+                ->orderBy('s.popularity', 'DESC');
+        }
+        if ($search->isVote()){
+            $query
+                ->orderBy('s.vote', 'DESC');
+        }
+        if ($search->getGenres()){
+            $query
+                ->andWhere('s.genres CONTAINS :genre')
+                ->setParameter('genre', '%'. $search->getGenre() .'%');
+        }
+        if ($search->getLastAirDate()) {
+            $query
+                ->orderBy('s.lastAirDate', 'DESC');
+        }
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Serie
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

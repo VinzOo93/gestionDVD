@@ -28,7 +28,7 @@ class FilterSerie
     /**
      * @ORM\Column(type="boolean")
      */
-    private $vote = false;
+    private $vote = true;
 
     /**
      * @ORM\Column(type="string", length=255)

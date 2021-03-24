@@ -4,9 +4,8 @@ namespace App\Controller;
 
 use App\Entity\FilterSerie;
 use App\Entity\Genre;
-use App\Entity\Serie;
 use App\Form\FilterSerieType;
-use App\Repository\GenreRepository;
+use App\Repository\SeasonRepository;
 use App\Repository\SerieRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,18 +28,37 @@ class IndexController extends AbstractController
         $filterSerie = new FilterSerie(($genres->getName()));
         $form = $this->createForm(FilterSerieType::class, $filterSerie);
         $form->handleRequest($request);
-        $data = $serieRepository ->filter($filterSerie);
+        $data = $serieRepository->filter($filterSerie);
 //        $data = $serieRepository->findBy([],['popularity' => 'DESC']);
 //        dump($data);
 
-       $series = $paginator->paginate(
-           $data,
-           $request->query->getInt('page', 1),
-           25
-       );
+        $series = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            25
+        );
         return $this->render('index/index.html.twig', [
             'series' => $series,
             'sortieFilterType' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/serie/{id}", name="serie", requirements={"id": "\d+"})
+     * @param $id
+     * @param Request $request
+     * @param SerieRepository $serieRepository
+     * @param SeasonRepository $seasonRepository
+     * @return Response
+     */
+    public function detail($id, Request $request, SerieRepository $serieRepository, SeasonRepository $seasonRepository): Response
+    {
+        $serie = $serieRepository->find($id);
+        $seasons = $seasonRepository->findBySerie($id);
+
+        return $this->render('index/serie.html.twig', [
+            'serie' => $serie,
+            'seasons' => $seasons,
         ]);
     }
 }

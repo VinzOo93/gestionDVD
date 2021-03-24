@@ -7,15 +7,13 @@
         </div>
         <button class="btn btn-lg btn-primary">Search</button>
         {{ form_end(sortieFilterType) }}
-
-
     </div>
-    <div class="container   ">
+    <div class="container ">
 {% for serie in series %}
     <div class="card" style="width: 25rem;">
-        <img class="card-img-top" src="img/posters/series/{{ serie.poster }}" alt="img-{{ serie.name }}">
+        <img class="card-img-top" src="{{ asset('img/posters/series/' ~ serie.poster ) }}" alt="img-{{ serie.name }}">
         <div class="card-body">
-            <h5 class="card-title"><a href="#">{{ serie.name }}</a></h5>
+            <h5 class="card-title"><a href="{{ path('serie', {'id' : serie.id}) }}">{{ serie.name }}</a></h5>
             <p class="card-text">{{ serie.genres }}</p>
         </div>
     </div>

@@ -1,3 +1,40 @@
+*{
+color: #70a6fd;
+
+}
+img {
+    width: 100%;
+    height: auto;}
+
+.container-serie {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.serie {
+    margin-left: 20%;
+}
+
+.container-seasons {
+     display: grid;
+     justify-content: center;
+     grid-template-columns: repeat(3, 1fr);
+     grid-gap: 0;
+     align-items: start;
+     position: relative;
+     width: 100%;
+     margin-left: 5%;
+     margin-right: 5%;
+ }
+
+
+.container-seasons .card-title{
+    color: red;
+}
+
 
 .container {
     display: grid;
@@ -7,10 +44,20 @@
     align-items: start;
     position: relative;
     width: 100%;
+
+}
+
+.card-text {
+    color: #0a0a0a !important;
 }
 body {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgb(19, 12, 146) 0%, rgba(129,12,40,1) 55%, rgba(50,19, 12, 146) 100%);
+
+}
+
+body > .container {
+    min-height: 100vh;
 }
 
 .pagination {
@@ -39,13 +86,10 @@ body {
 }
 
 .banner {
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-creative-black-gold-21st-shanghai-international-film-festival-banner-image_194431.jpg") ;
+    background-image: url("https://lukebrown.dev/images/blog/banner-with-gradient.png") ;
     background-size:100% 100%;
 }
 
-.title {
-    color: #AAAAAA;
-}
 
 .form-serie {
     background-color: #36393e;
@@ -58,9 +102,17 @@ body {
 form {
     display: flex;
     justify-content: space-around;
-    color: #AAAAAA;
     font-size: 15px;
 
+}
+
+.backdrop {
+    position: absolute;
+    background-position: 100%;
+}
+
+.bg-image {
+    background-position:100% 100%;
 }
 
 

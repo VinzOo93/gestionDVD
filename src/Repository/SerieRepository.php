@@ -24,8 +24,7 @@ class SerieRepository extends ServiceEntityRepository
         $query = $this
             ->createQueryBuilder('s')
             ->addSelect('s');
-        $query
-            ->orderBy('s.popularity', 'DESC');
+
         if ($search->getName()) {
             $query
                 ->andWhere('s.name LIKE :name')

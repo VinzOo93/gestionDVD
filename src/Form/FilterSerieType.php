@@ -23,7 +23,6 @@ class FilterSerieType extends AbstractType
             ->add('popularity', CheckboxType::class, [
                 'label' => 'Most popular',
                 'required' =>false,
-
             ])
             ->add('vote', CheckboxType::class, [
                 'label' => 'Best Grading',

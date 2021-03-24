@@ -23,7 +23,7 @@ class FilterSerie
     /**
      * @ORM\Column(type="boolean")
      */
-    private $popularity = true;
+    private $popularity = false;
 
     /**
      * @ORM\Column(type="boolean")

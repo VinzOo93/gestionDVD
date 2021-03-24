@@ -35,7 +35,7 @@ class IndexController extends AbstractController
         $series = $paginator->paginate(
             $data,
             $request->query->getInt('page', 1),
-            25
+            24
         );
         return $this->render('index/index.html.twig', [
             'series' => $series,

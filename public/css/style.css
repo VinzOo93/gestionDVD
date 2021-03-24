@@ -1,10 +1,16 @@
-*{
-color: #70a6fd;
+* {
+    color: #70a6fd;
 
 }
+
+.display-4 {
+    color: #CC7832;
+}
+
 img {
     width: 100%;
-    height: auto;}
+    height: auto;
+}
 
 .container-serie {
     display: grid;
@@ -19,19 +25,19 @@ img {
 }
 
 .container-seasons {
-     display: grid;
-     justify-content: center;
-     grid-template-columns: repeat(3, 1fr);
-     grid-gap: 0;
-     align-items: start;
-     position: relative;
-     width: 100%;
-     margin-left: 5%;
-     margin-right: 5%;
- }
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0;
+    align-items: start;
+    position: relative;
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
 
-.container-seasons .card-title{
+.container-seasons .card-title {
     color: red;
 }
 
@@ -50,9 +56,10 @@ img {
 .card-text {
     color: #0a0a0a !important;
 }
+
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(19, 12, 146) 0%, rgba(129,12,40,1) 55%, rgba(50,19, 12, 146) 100%);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgb(19, 12, 146) 0%, rgba(129, 12, 40, 1) 55%, rgba(50, 19, 12, 146) 100%);
 
 }
 
@@ -74,20 +81,22 @@ body > .container {
 }
 
 .current {
-    color: yellow; !important;
+    color: yellow;
+!important;
 }
+
 .navbar {
     font-size: 20px;
 }
 
 .title {
- display: flex;
+    display: flex;
     justify-content: center;
 }
 
 .banner {
-    background-image: url("https://lukebrown.dev/images/blog/banner-with-gradient.png") ;
-    background-size:100% 100%;
+    background-image: url("https://lukebrown.dev/images/blog/banner-with-gradient.png");
+    background-size: 100% 100%;
 }
 
 
@@ -112,7 +121,10 @@ form {
 }
 
 .bg-image {
-    background-position:100% 100%;
+    background-position: 100% 100%;
 }
 
 
+.btn {
+    background-color: #70a6fd !important;
+}

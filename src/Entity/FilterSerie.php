@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FilterSortieRepository::class)
  */
 class FilterSerie
 {
@@ -29,82 +28,106 @@ class FilterSerie
     /**
      * @ORM\Column(type="boolean")
      */
-    private $vote;
+    private $vote = false;
 
     /**
-     * @ORM\Column(type="Genres", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $genres = '';
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $LastAirDate;
+    private $lastAirDate = false;
+
+    /**
+     * FilterSerie constructor.
+     * @param string $genres
+     */
+    public function __construct(?string $genres)
+    {
+        $this->genres = $genres;
+    }
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName():? string
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): FilterSerie
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getPopularity(): ?bool
+    public function getPopularity(): bool
     {
         return $this->popularity;
     }
 
-    public function isVote(): ?bool
+    public function isVote(): bool
     {
         return $this->vote;
     }
 
+
+
     /**
      * @param bool $vote
      */
-    public function setVote(bool $vote): ?self
+    public function setVote(bool $vote): FilterSerie
     {
-        $this->vote = $vote;
+      $this->vote = $vote;
+
+      return $this;
     }
+
     /**
-     * @return bool
+     * @param bool $popularity
+     * @return FilterSerie
      */
-    public function setPopularity(bool $popularity): self
+    public function setPopularity(bool $popularity): FilterSerie
     {
         $this->popularity = $popularity;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getGenres(): ?string
     {
         return $this->genres;
     }
 
-    public function setGenres(string $genres): self
+    /**
+     * @param string $genres
+     */
+    public function setGenres(?string $genres): FilterSerie
     {
         $this->genres = $genres;
 
         return $this;
     }
 
+
+
     Public function getLastAirDate(): ?bool
     {
-        return $this->LastAirDate;
+        return $this->lastAirDate;
     }
 
-    public function setLastAirDate(bool $LastAirDate): self
+    public function setLastAirDate(bool $lastAirDate): FilterSerie
     {
-        $this->LastAirDate = $LastAirDate;
+        $this->lastAirDate = $lastAirDate;
 
         return $this;
     }

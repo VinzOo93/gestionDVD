@@ -19,33 +19,35 @@ class SerieRepository extends ServiceEntityRepository
         parent::__construct($registry, Serie::class);
     }
 
-    public function filter ($search) {
+    public function filter($search)
+    {
         $query = $this
             ->createQueryBuilder('s')
             ->addSelect('s');
         $query
             ->orderBy('s.popularity', 'DESC');
-        if ($search->getName()){
+        if ($search->getName()) {
             $query
-                ->andWhere('s.name CONTAINS :name')
-                ->setParameter('name', '%'. $search->getName() .'%');
+                ->andWhere('s.name LIKE :name')
+                ->setParameter('name', '%' . $search->getName() . '%');
         }
-        if ($search->getPopularity()){
+        if ($search->getPopularity()) {
             $query
                 ->orderBy('s.popularity', 'DESC');
         }
-        if ($search->isVote()){
+        if ($search->isVote()) {
             $query
                 ->orderBy('s.vote', 'DESC');
         }
-        if ($search->getGenres()){
+        if ($search->getGenres()) {
             $query
-                ->andWhere('s.genres CONTAINS :genre')
-                ->setParameter('genre', '%'. $search->getGenre() .'%');
+                ->andWhere('s.genres LIKE :genre')
+                ->setParameter('genre', '%' . $search->getGenres() . '%');
         }
         if ($search->getLastAirDate()) {
             $query
                 ->orderBy('s.lastAirDate', 'DESC');
         }
+        return $query->getQuery()->getResult();
     }
 }

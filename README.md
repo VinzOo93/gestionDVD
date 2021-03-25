@@ -29,7 +29,7 @@ php bin/console doctrine:schema:update --force
 
 # Import de la base donnée
 
-Se rendre dans votre interface de base donnée (compatible mySQL) et effectuer l'import de ce ficher :
+Se rendre dans votre interface de base donnée (compatible mySQL) et y effectuer l'import de ce fichier :
 
 dvdmanager-db.sql (se trouvant dans ce même répertoire)
 

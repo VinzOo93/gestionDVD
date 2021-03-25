@@ -26,6 +26,13 @@ puis, lancer la commande :
 php bin/console doctrine:database:create 
 php bin/console doctrine:schema:update --force
 
+# Import de la base donnée
+
+Se rendre dans votre interface de base donnée (compatible mySQL) et effectuer l'import de ce ficher :
+
+dvdmanager-db.sql (se trouvant dans ce même répertoire)
+
+# Utilisation
 lien acceder à l'index : 
 
 http://localhost/gestionDVD/public/

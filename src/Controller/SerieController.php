@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\DateTime;
+
 
 /**
  * @Route("/serie")
@@ -70,7 +70,7 @@ class SerieController extends AbstractController
                 }
                 $serie->setPoster($newFilename);
             }
-            $dateTime = new  DateTime('NOW');
+            $dateTime = new  \DateTime('NOW');
             $serie->setDateCreated($dateTime);
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -141,7 +141,7 @@ class SerieController extends AbstractController
                     $serie->setPoster($newFilename);
                 }
 
-                $dateTime = new  DateTime('NOW');
+                $dateTime = new  \DateTime('NOW');
                 $serie->setDateModified($dateTime);
 
 

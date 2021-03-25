@@ -37,7 +37,7 @@ class Serie
     private $status;
 
     /**
-     * @Assert\Range(min="0", max="10", notInRangeMessage="You are not in range dude!")
+     * @Assert\Range(min="0", max="10", notInRangeMessage="vote has to be set like this 9.50")
      * @ORM\Column(type="decimal", precision=3, scale=1)
      */
     private $vote;
@@ -45,6 +45,7 @@ class Serie
 
 
     /**
+     * @Assert\Range (min="0", max="1000", notInRangeMessage="vote has to be set like this 950.00")
      * @ORM\Column(type="decimal", precision=6, scale=2)
      */
     private $popularity;

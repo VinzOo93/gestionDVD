@@ -4,8 +4,9 @@ namespace App\Form;
 
 use App\Entity\Serie;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ButtonType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,9 +17,19 @@ class SerieType extends AbstractType
         $builder
             ->add('name')
             ->add('overview')
-            ->add('status')
+            ->add('status', ChoiceType::class, [
+                'choices' => [
+                    'Cancelled' => 'Cancelled',
+                    'returning' =>  'returning',
+                    'ended' => 'ended',
+                ],
+            ])
             ->add('vote')
-            ->add('popularity')
+            ->add('popularity', NumberType::class,[
+                'label' => 'popularity',
+                'scale' => 2,
+
+            ])
             ->add('genres')
             ->add('firstAirDate')
             ->add('lastAirDate')
@@ -32,11 +43,8 @@ class SerieType extends AbstractType
                 'mapped' => false,
                 'required' => false,
             ])
-            ->add('tmdbId')
-            ->add('save', ButtonType::class, [
-                'attr' => ['class' => 'btn btn-lg btn-primary',
-                    'placeholder' => 'SAVE'
-                ],
+            ->add('tmdbId', NumberType::class,[
+              'label' => 'tmdbId',
             ]);
     }
 

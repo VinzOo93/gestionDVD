@@ -21,7 +21,6 @@ voir doc lien ci dessous
 https://symfony.com/doc/4.4/configuration.html
 
 Pour créer la base de donnée, vous devez d'abord configurer correctement le fichier .env ou .env.local, puis exécuter :
-puis, lancer la commande :
 
 php bin/console doctrine:database:create 
 php bin/console doctrine:schema:update --force

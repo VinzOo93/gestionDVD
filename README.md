@@ -7,7 +7,7 @@ cd /wamp64/www
 lancer la commande :
 git clone https://github.com/VinzOo93/.git 
 
-pour installé les dépendances de symfony se rendre dans : 
+pour installer les dépendances de symfony se rendre dans : 
 cd gestionDVD
 composer install
 
@@ -20,7 +20,7 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 voir doc lien ci dessous
 https://symfony.com/doc/4.4/configuration.html
 
-Pour créer la base de donnée, vous devez d'abord configurer correctement le fichier .env ou .env.local, puis exécuter :
+Pour créer la base de données, vous devez d'abord configurer correctement le fichier .env ou .env.local, puis exécuter :
 
 php bin/console doctrine:database:create 
 
@@ -29,7 +29,7 @@ php bin/console doctrine:schema:update --force
 
 # Import de la base donnée
 
-Se rendre dans votre interface de base donnée (compatible mySQL) et y effectuer l'import de ce fichier :
+Se rendre dans votre interface de base données (compatible mySQL) et y effectuer l'import de ce fichier :
 
 dvdmanager-db.sql (se trouvant dans ce même répertoire)
 
